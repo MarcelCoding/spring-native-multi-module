@@ -9,4 +9,5 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
+    annotationProcessor "org.springframework:spring-context-indexer:${springFrameworkVersion}"
 }

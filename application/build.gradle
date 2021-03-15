@@ -2,21 +2,19 @@ plugins {
     id 'java'
     id 'org.springframework.boot'
     id 'io.spring.dependency-management'
-    id 'org.springframework.experimental.aot'
+//    id 'org.springframework.experimental.aot'
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-autoconfigure'
-    implementation("org.springframework.experimental:spring-native:${springNativeVersion}") { changing true }
 
     implementation project(':library')
 
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.springframework:spring-context-indexer'
 }
 
 bootBuildImage {
-    builder = "paketobuildpacks/builder:tiny"
-    environment = [
-            "BP_BOOT_NATIVE_IMAGE": "true"
-    ]
+    builder = 'paketobuildpacks/builder:tiny'
+    environment = ['BP_BOOT_NATIVE_IMAGE': 'true']
 }
